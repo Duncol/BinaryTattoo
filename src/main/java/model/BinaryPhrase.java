@@ -35,7 +35,6 @@ public abstract class BinaryPhrase {
         public BinaryPhrase build() {
             int longestWordLength = words.stream().map(BinaryWord::length).reduce(Integer::sum).orElse(0);
             int wordCount = words.size();
-            int delimiterCount = wordCount-1;
 
             if (PrintDirection.HORIZONTAL.equals(direction)) {
                 return new HorizontalBinaryPhrase(longestWordLength, wordCount, words);
