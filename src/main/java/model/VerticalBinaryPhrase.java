@@ -19,7 +19,6 @@ public class VerticalBinaryPhrase extends BinaryPhrase {
                 bitMatrix[heightCursor][widthCursor] = bit;
                 heightCursor++;
             }
-
         }
         widthCursor++;
     }

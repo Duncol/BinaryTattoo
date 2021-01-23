@@ -21,6 +21,7 @@ public class BinaryTattoo {
 
         final BinaryPhrase phrase = new BinaryPhrase.Builder()
                 .words(words)
+//                .direction(PrintDirection.HORIZONTAL)
                 .direction(PrintDirection.VERTICAL)
                 .build();
 
