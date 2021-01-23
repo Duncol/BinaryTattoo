@@ -1,5 +1,6 @@
 import lombok.extern.slf4j.Slf4j;
-import model.BinaryPhrase;
+import model.phrase.BinaryPhrase;
+import model.phrase.BinaryPhraseBuilder;
 import model.BinaryWord;
 import parser.BinaryParser;
 import parser.PrintDirection;
@@ -14,17 +15,18 @@ public class BinaryTattoo {
     public static void main(String[] args) {
 
         final String input = "FORTIS FORTUNA ADJUVAT";
-        final String delimiter = " ";
+        final String separator = " ";
 
-        final List<BinaryWord> words = Stream.of(input.split(delimiter))
+        final List<BinaryWord> words = Stream.of(input.split(separator))
                 .map(BinaryParser::parseBinaryWord).collect(Collectors.toList());
 
-        final BinaryPhrase phrase = new BinaryPhrase.Builder()
+        final BinaryPhrase phrase = new BinaryPhraseBuilder()
                 .words(words)
+                .separator(separator)
 //                .direction(PrintDirection.HORIZONTAL)
                 .direction(PrintDirection.VERTICAL)
                 .build();
 
-        phrase.printBits();
+        System.out.println(phrase.toString());
     }
 }

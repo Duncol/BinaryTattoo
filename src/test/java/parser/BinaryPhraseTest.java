@@ -1,6 +1,10 @@
 package parser;
 
 import model.*;
+import model.phrase.BinaryPhrase;
+import model.phrase.BinaryPhraseBuilder;
+import model.phrase.HorizontalBinaryPhrase;
+import model.phrase.VerticalBinaryPhrase;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,7 +21,7 @@ public class BinaryPhraseTest {
         Collection<BinaryWord> emptyWordCollection = new ArrayList<>();
 
         // when
-        final BinaryPhrase phrase = new BinaryPhrase.Builder()
+        final BinaryPhrase phrase = new BinaryPhraseBuilder()
                 .words(emptyWordCollection)
                 .direction(PrintDirection.VERTICAL)
                 .build();
@@ -33,7 +37,7 @@ public class BinaryPhraseTest {
         Collection<BinaryWord> emptyWordCollection = new ArrayList<>();
 
         // when
-        final BinaryPhrase phrase = new BinaryPhrase.Builder()
+        final BinaryPhrase phrase = new BinaryPhraseBuilder()
                 .words(emptyWordCollection)
                 .direction(PrintDirection.HORIZONTAL)
                 .build();
