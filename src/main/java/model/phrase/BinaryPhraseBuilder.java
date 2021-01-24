@@ -1,7 +1,6 @@
 package model.phrase;
 
 import model.BinaryWord;
-import parser.PrintDirection;
 
 import java.util.ArrayList;
 import java.util.Collection;

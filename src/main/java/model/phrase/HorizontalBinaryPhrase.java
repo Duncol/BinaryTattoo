@@ -29,7 +29,6 @@ public class HorizontalBinaryPhrase extends BinaryPhrase {
 
     @Override
     public String toString() {
-
         StringBuilder sb = new StringBuilder();
         for (boolean[] row : bitMatrix) {
             for (int j = 0; j < row.length; j++) {

@@ -1,10 +1,6 @@
-package parser;
+package model.phrase;
 
-import model.*;
-import model.phrase.BinaryPhrase;
-import model.phrase.BinaryPhraseBuilder;
-import model.phrase.HorizontalBinaryPhrase;
-import model.phrase.VerticalBinaryPhrase;
+import model.BinaryWord;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,7 +8,7 @@ import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BinaryPhraseTest {
+class BinaryPhraseBuilderTest {
 
     @Test
     public void verticalTest() {

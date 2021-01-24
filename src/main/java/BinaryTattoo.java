@@ -2,8 +2,7 @@ import lombok.extern.slf4j.Slf4j;
 import model.phrase.BinaryPhrase;
 import model.phrase.BinaryPhraseBuilder;
 import model.BinaryWord;
-import parser.BinaryParser;
-import parser.PrintDirection;
+import model.phrase.PrintDirection;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,8 +22,8 @@ public class BinaryTattoo {
         final BinaryPhrase phrase = new BinaryPhraseBuilder()
                 .words(words)
                 .separator(separator)
-//                .direction(PrintDirection.HORIZONTAL)
-                .direction(PrintDirection.VERTICAL)
+                .direction(PrintDirection.HORIZONTAL)
+//                .direction(PrintDirection.VERTICAL)
                 .build();
 
         System.out.println(phrase.toString());

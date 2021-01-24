@@ -1,13 +1,9 @@
-package parser;
-
 import lombok.extern.slf4j.Slf4j;
 import model.BinaryLetter;
 import model.BinaryWord;
 
 @Slf4j
 public class BinaryParser {
-
-    private static final char SPACE = ' ';
 
     public static BinaryWord parseBinaryWord(String input) {
         log.info("Parsing input: {}", input);
@@ -31,17 +27,17 @@ public class BinaryParser {
             divider *= 2;
         }
 
-        BinaryLetter letter = new BinaryLetter();
+        BinaryLetter.Builder letterBuilder = new BinaryLetter.Builder();
         while (divider > 0) {
             if (input >= divider) {
-                letter.appendBit(true);
+                letterBuilder.appendBit(true);
                 input -= divider;
             } else {
-                letter.appendBit(false);
+                letterBuilder.appendBit(false);
             }
             divider /= 2;
         }
 
-        return letter;
+        return letterBuilder.build();
     }
 }
