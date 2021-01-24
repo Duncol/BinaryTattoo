@@ -11,21 +11,17 @@ import java.util.stream.Stream;
 @Slf4j
 public class BinaryTattoo {
 
-    public static void main(String[] args) {
+    public String toBinaryString(String source, String separator, PrintDirection printDirection) {
 
-        final String input = "FORTIS FORTUNA ADJUVAT";
-        final String separator = " ";
-
-        final List<BinaryWord> words = Stream.of(input.split(separator))
+        final List<BinaryWord> words = Stream.of(source.split(separator))
                 .map(BinaryParser::parseBinaryWord).collect(Collectors.toList());
 
         final BinaryPhrase phrase = new BinaryPhraseBuilder()
                 .words(words)
                 .separator(separator)
-                .direction(PrintDirection.HORIZONTAL)
-//                .direction(PrintDirection.VERTICAL)
+                .direction(printDirection)
                 .build();
 
-        System.out.println(phrase.toString());
+        return phrase.toString();
     }
 }
