@@ -1,8 +1,8 @@
 import lombok.extern.slf4j.Slf4j;
+import model.BinaryWord;
+import model.TattooData;
 import model.phrase.BinaryPhrase;
 import model.phrase.BinaryPhraseBuilder;
-import model.BinaryWord;
-import model.phrase.PrintDirection;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,15 +11,17 @@ import java.util.stream.Stream;
 @Slf4j
 public class BinaryTattoo {
 
-    public String toBinaryString(String source, String separator, PrintDirection printDirection) {
+    private static final String DEFAULT_SEPARAOR = " ";
 
-        final List<BinaryWord> words = Stream.of(source.split(separator))
+    public static String toBinaryString(TattooData tattooData) {
+
+        final List<BinaryWord> words = Stream.of(tattooData.tattooString().split(DEFAULT_SEPARAOR))
                 .map(BinaryParser::parseBinaryWord).collect(Collectors.toList());
 
         final BinaryPhrase phrase = new BinaryPhraseBuilder()
                 .words(words)
-                .separator(separator)
-                .direction(printDirection)
+                .separator(tattooData.separator())
+                .direction(tattooData.printDirection())
                 .build();
 
         return phrase.toString();
